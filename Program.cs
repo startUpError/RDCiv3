@@ -295,22 +295,33 @@ namespace RDCiv3
                         case "skip":
                             data.actions--;
                             break;
+                        //TODO: Fix execution to kill population ages in priority order. Otherwise population refills after execution.
                         case "Execute":
-                            Console.WriteLine("Are you sure you want to execute one member of your population?");
+                            Console.WriteLine("How many people?");
+                            int executionAmount = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine("Are you sure you want to execute {0} member(s) of your population?", executionAmount);
                             switch (Console.ReadLine()) {
                                 case "Yes":
-                                    data.population--;
-                                    data.fear += 0.05;
-                                    data.happiness -= 0.05;
-                                    data.actions--;
-                                    Console.WriteLine("Your people grow more fearful of you");
+                                    if(data.population > executionAmount) {
+                                        data.population -= executionAmount;
+                                        data.fear += 0.05 * executionAmount;
+                                        data.happiness -= 0.05 * executionAmount;
+                                        data.actions--;
+                                        Console.WriteLine("Your people grow more fearful of you");
+                                    } else {
+                                        Console.WriteLine("You wouldn't have enough people after this. Execution canceled.");
+                                    }
                                     break;
                                 case "yes":
-                                    data.population--;
-                                    data.fear += 0.05;
-                                    data.happiness -= 0.05;
-                                    data.actions--;
-                                    Console.WriteLine("Your people grow more fearful of you");
+                                    if(data.population > executionAmount) {
+                                        data.population -= executionAmount;
+                                        data.fear += 0.05 * executionAmount;
+                                        data.happiness -= 0.05 * executionAmount;
+                                        data.actions--;
+                                        Console.WriteLine("Your people grow more fearful of you");
+                                    } else {
+                                        Console.WriteLine("You wouldn't have enough people after this. Execution canceled.");
+                                    }
                                     break;
                                 default:
                                     Console.WriteLine("Your execution was cancelled");
@@ -318,21 +329,31 @@ namespace RDCiv3
                             }
                             break;
                         case "execute":
-                            Console.WriteLine("Are you sure you want to execute one member of your population?");
+                            Console.WriteLine("How many people?");
+                            executionAmount = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine("Are you sure you want to execute {0} member(s) of your population?", executionAmount);
                             switch (Console.ReadLine()) {
                                 case "Yes":
-                                    data.population--;
-                                    data.fear += 0.05;
-                                    data.happiness -= 0.05;
-                                    data.actions--;
-                                    Console.WriteLine("Your people grow more fearful of you");
+                                    if(data.population > executionAmount) {
+                                        data.population -= executionAmount;
+                                        data.fear += 0.05 * executionAmount;
+                                        data.happiness -= 0.05 * executionAmount;
+                                        data.actions--;
+                                        Console.WriteLine("Your people grow more fearful of you");
+                                    } else {
+                                        Console.WriteLine("You wouldn't have enough people after this. Execution canceled.");
+                                    }
                                     break;
                                 case "yes":
-                                    data.population--;
-                                    data.fear += 0.05;
-                                    data.happiness -= 0.05;
-                                    data.actions--;
-                                    Console.WriteLine("Your people grow more fearful of you");
+                                    if(data.population > executionAmount) {
+                                        data.population -= executionAmount;
+                                        data.fear += 0.05 * executionAmount;
+                                        data.happiness -= 0.05 * executionAmount;
+                                        data.actions--;
+                                        Console.WriteLine("Your people grow more fearful of you");
+                                    } else {
+                                        Console.WriteLine("You wouldn't have enough people after this. Execution canceled.");
+                                    }
                                     break;
                                 default:
                                     Console.WriteLine("Your execution was cancelled");

@@ -1,1 +1,1 @@
-The code for the indev console game for Windows, RDCiv1.
+The code for the indev console game for Windows, RDCiv3.

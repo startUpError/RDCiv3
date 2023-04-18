@@ -8,19 +8,19 @@
     "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\rdaro\\.nuget\\packages\\": {}
+    "C:\\Users\\IMPETUS\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rdaro\\OneDrive\\Desktop\\RDCiv3\\RDCiv3\\RDCiv3.csproj",
+      "projectUniqueName": "C:\\Users\\IMPETUS\\Desktop\\Code\\C#\\RDCiv3\\RDCiv3.csproj",
       "projectName": "RDCiv3",
-      "projectPath": "C:\\Users\\rdaro\\OneDrive\\Desktop\\RDCiv3\\RDCiv3\\RDCiv3.csproj",
-      "packagesPath": "C:\\Users\\rdaro\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rdaro\\OneDrive\\Desktop\\RDCiv3\\RDCiv3\\obj\\",
+      "projectPath": "C:\\Users\\IMPETUS\\Desktop\\Code\\C#\\RDCiv3\\RDCiv3.csproj",
+      "packagesPath": "C:\\Users\\IMPETUS\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\IMPETUS\\Desktop\\Code\\C#\\RDCiv3\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\rdaro\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\IMPETUS\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -59,7 +59,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }
