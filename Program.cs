@@ -4,6 +4,7 @@ using AccessData;
 using EventSystem;
 using Resources;
 
+//TODO: Add other civilizations, include "Ethan's Village"
 namespace RDCiv3
 {
 
@@ -28,13 +29,13 @@ namespace RDCiv3
         public List<int> adults = new List<int>();
         public List<int> elders = new List<int>();
 
-        public int builders = 1;
+        public int builders = 2;
         public int woodCutters = 1;
         public int miners = 1;
-        public int farmers = 2;
+        public int farmers = 1;
         //Material variables
         public double money = 0.00;
-        public int food = 20;
+        public int food = 10;
         public int wood = 5;
         public int stone = 5;
         //Building variables
@@ -169,12 +170,26 @@ namespace RDCiv3
 
                 //Adds materials for each worker in a building if its not the first day
                 //-.TODO: Material growth scales to workers of that type
-                //-.EG. data.wood += data.woodHuts * data.woodCutters;
                 if (data.days != 0)
                 {
-                    data.wood += data.woodHuts * data.woodCutters;
-                    data.stone += data.stoneQuarries * data.miners;
-                    data.food += data.farms * data.farmers;
+                    //Wood Huts => 3 slots
+                    if (data.woodHuts * 3 >= data.woodCutters) { //Checks if there are enough empty slots for all the workers and adds wood for each worker if so.
+                        data.wood += data.woodCutters * 2;
+                    } else { //Otherwise only adds wood for the slots filled
+                        data.wood += data.woodHuts * 6; //huts * 3 * 2
+                    }
+                    //Stone Quarries => 2 slots
+                    if (data.stoneQuarries * 2>= data.miners) {
+                        data.stone += data.miners * 2;
+                    } else {
+                        data.stone += data.stoneQuarries * 4; //quarries * 2 * 2
+                    }
+                    //Farms => 4 slots
+                    if (data.farms * 4 >= data.farmers) {
+                        data.food += data.farmers * 3;
+                    } else {
+                        data.food += data.farms * 12; //farms * 4 * 3
+                    }
                 }
 
                 //Checks if its a game over, or removes food/population accordingly if not
@@ -441,15 +456,15 @@ namespace RDCiv3
             Console.WriteLine("Actions remaining = {0}", data.actions);
             Console.WriteLine("Population = {0}", data.population);
             Console.WriteLine("Children = {0}, Adults = {1}, Elders = {2}", data.children.Count, data.adults.Count, data.elders.Count);
-            Console.WriteLine("Builders = {0}, Wood Cutters = {1}, Miners = {2}, Farmers = {3}", data.builders, data.woodCutters, data.miners, data.farmers);
+            Console.WriteLine("Builders = {0}, Wood Cutters [Produces 2 wood] = {1}, Miners [Produces 2 stone] = {2}, Farmers [Produces 3 food] = {3}", data.builders, data.woodCutters, data.miners, data.farmers);
             Console.WriteLine("Money = {0}", data.money);
             Console.WriteLine("Food = {0}", data.food);
             Console.WriteLine("Wood = {0}", data.wood);
             Console.WriteLine("Stone = {0}", data.stone);
-            Console.WriteLine("Farms = {0}", data.farms);
+            Console.WriteLine("Farms [4 Work Slots] = {0}", data.farms);
             Console.WriteLine("Houses = {0}", data.houses);
-            Console.WriteLine("Wood Huts = {0}", data.woodHuts);
-            Console.WriteLine("Stone Quarries = {0}", data.stoneQuarries);
+            Console.WriteLine("Wood Huts [3 Work Slots] = {0}", data.woodHuts);
+            Console.WriteLine("Stone Quarries [2 Work Slots] = {0}", data.stoneQuarries);
             Console.WriteLine("Parks = {0}", data.parks);
         }
     }

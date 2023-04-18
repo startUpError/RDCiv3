@@ -1,13 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EC6TOWA/WmlH2Vq1FLBO6FI6e3iGTQg8IuCByZqSsjIJyHhtxrVmtnDRIzjJ6FW/pgCJj3UJbGopTPdAaqVcmg==",
+  "dgSpecHash": "v8P0DKQR3uaH2kYpRvgr+G8NQehxVaFK8HykMCyT1U4E8v8W4NgZeX+nwMXtM/iiVVo2swSo63Kvhfw/CA50dw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\IMPETUS\\Desktop\\Code\\C#\\RDCiv3\\RDCiv3.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\IMPETUS\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.15\\microsoft.netcore.app.ref.6.0.15.nupkg.sha512",
-    "C:\\Users\\IMPETUS\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.15\\microsoft.windowsdesktop.app.ref.6.0.15.nupkg.sha512",
-    "C:\\Users\\IMPETUS\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.15\\microsoft.aspnetcore.app.ref.6.0.15.nupkg.sha512",
-    "C:\\Users\\IMPETUS\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.15\\microsoft.netcore.app.host.win-x64.6.0.15.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\rdaro\\OneDrive\\Desktop\\RDCiv3\\RDCiv3\\RDCiv3.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }
