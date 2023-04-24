@@ -114,15 +114,17 @@ namespace RDCiv3
                     data.fear = 0;
                 }
 
-                foreach (int current in data.children) {
-                    if (current > 7) {
-                        data.children.Remove(current);
+                for (int i = 0; i < data.children.Count; i++) {
+                    data.children[i]++;
+                    if (data.children[i] > 7) {
+                        data.children.Remove(data.children[i]);
                         data.adults.Add(0);
                     }
                 }
-                foreach (int current in data.adults) {
-                    if (current > 15) {
-                        data.adults.Remove(current);
+                for (int i = 0; i < data.adults.Count; i++) {
+                    data.adults[i]++;
+                    if (data.adults[i] > 15) {
+                        data.adults.Remove(data.adults[i]);
                         data.elders.Add(0);
                     }
                 }
