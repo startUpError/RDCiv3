@@ -73,7 +73,7 @@ namespace RDCiv3
 
     class Program
     {
-
+        
         //Stores game data
         public static GameData data = new GameData();
 
@@ -267,7 +267,7 @@ namespace RDCiv3
                     Display();
                     //Ask for an action as input
                     Console.WriteLine("What would you like to do?");
-                    Console.WriteLine("Build, Demolish, Execute, Trade, Skip, Skip Day, Save, Quit");
+                    Console.WriteLine("Build, Demolish, Execute, Trade, Limit Population, Skip, Skip Day, Save, Quit");
                     //Check possibilities and run code accordingly
                     switch (Console.ReadLine())
                     {
@@ -299,68 +299,10 @@ namespace RDCiv3
                             break;
                         //TODO: Fix execution to kill population ages in priority order. Otherwise population refills after execution.
                         case "Execute":
-                            Console.WriteLine("How many people?");
-                            int executionAmount = Convert.ToInt32(Console.ReadLine());
-                            Console.WriteLine("Are you sure you want to execute {0} member(s) of your population?", executionAmount);
-                            switch (Console.ReadLine()) {
-                                case "Yes":
-                                    if(data.population > executionAmount) {
-                                        data.population -= executionAmount;
-                                        data.fear += 0.05 * executionAmount;
-                                        data.happiness -= 0.05 * executionAmount;
-                                        data.actions--;
-                                        Console.WriteLine("Your people grow more fearful of you");
-                                    } else {
-                                        Console.WriteLine("You wouldn't have enough people after this. Execution canceled.");
-                                    }
-                                    break;
-                                case "yes":
-                                    if(data.population > executionAmount) {
-                                        data.population -= executionAmount;
-                                        data.fear += 0.05 * executionAmount;
-                                        data.happiness -= 0.05 * executionAmount;
-                                        data.actions--;
-                                        Console.WriteLine("Your people grow more fearful of you");
-                                    } else {
-                                        Console.WriteLine("You wouldn't have enough people after this. Execution canceled.");
-                                    }
-                                    break;
-                                default:
-                                    Console.WriteLine("Your execution was cancelled");
-                                    break;
-                            }
+                            Population.Execute();
                             break;
                         case "execute":
-                            Console.WriteLine("How many people?");
-                            executionAmount = Convert.ToInt32(Console.ReadLine());
-                            Console.WriteLine("Are you sure you want to execute {0} member(s) of your population?", executionAmount);
-                            switch (Console.ReadLine()) {
-                                case "Yes":
-                                    if(data.population > executionAmount) {
-                                        data.population -= executionAmount;
-                                        data.fear += 0.05 * executionAmount;
-                                        data.happiness -= 0.05 * executionAmount;
-                                        data.actions--;
-                                        Console.WriteLine("Your people grow more fearful of you");
-                                    } else {
-                                        Console.WriteLine("You wouldn't have enough people after this. Execution canceled.");
-                                    }
-                                    break;
-                                case "yes":
-                                    if(data.population > executionAmount) {
-                                        data.population -= executionAmount;
-                                        data.fear += 0.05 * executionAmount;
-                                        data.happiness -= 0.05 * executionAmount;
-                                        data.actions--;
-                                        Console.WriteLine("Your people grow more fearful of you");
-                                    } else {
-                                        Console.WriteLine("You wouldn't have enough people after this. Execution canceled.");
-                                    }
-                                    break;
-                                default:
-                                    Console.WriteLine("Your execution was cancelled");
-                                    break;
-                            }
+                            Population.Execute();
                             break;
                         case "Trade":
                             Trading.Trade();
@@ -388,6 +330,18 @@ namespace RDCiv3
                             break;
                         case "skip day":
                             data.actions = 0;
+                            break;
+                        case "Limit Population":
+                            Population.LimitPopulation();
+                            break;
+                        case "Limit population":
+                            Population.LimitPopulation();
+                            break;
+                        case "limit Population":
+                            Population.LimitPopulation();
+                            break;
+                        case "limit population":
+                            Population.LimitPopulation();
                             break;
                         //Cheat options below
                         case "K1ll":

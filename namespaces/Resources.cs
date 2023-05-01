@@ -3,6 +3,246 @@ using RDCiv3;
 using Game = RDCiv3.Program;
 
 namespace Resources {
+
+    class Population {
+        public static void Execute () {
+            Console.WriteLine("How many people?");
+            int executionAmount = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Are you sure you want to execute {0} member(s) of your population?", executionAmount);
+            switch (Console.ReadLine()) {
+                case "Yes":
+                    if(Game.data.population > executionAmount) {
+                        int counter = 0;
+                        for (; counter < executionAmount; counter++) {
+                            Game.data.elders.RemoveAt(counter);
+                        }
+                        Game.data.population -= counter;
+                        Game.data.fear += 0.05 * counter;
+                        Game.data.happiness -= 0.05 * counter;
+                        Game.data.actions--;
+                        Console.WriteLine("{0} people were executed. Your people grow more fearful of you.", counter);
+                    } else {
+                        Console.WriteLine("You wouldn't have enough people after this. Execution canceled.");
+                    }
+                    break;
+                case "yes":
+                    if(Game.data.population > executionAmount) {
+                        Game.data.population -= executionAmount;
+                        Game.data.fear += 0.05 * executionAmount;
+                        Game.data.happiness -= 0.05 * executionAmount;
+                        Game.data.actions--;
+                        Console.WriteLine("Your people grow more fearful of you");
+                    } else {
+                        Console.WriteLine("You wouldn't have enough people after this. Execution canceled.");
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Your execution was cancelled");
+                    break;
+            }
+        }
+        public static void LimitPopulation () {
+            Console.WriteLine("Would you like to toggle population growth, or set a population growth limit?");
+            switch (Console.ReadLine()) {
+                case "Toggle Population Growth":
+                    if (Game.data.doesPopGrow) {
+                        Console.WriteLine("A notice has been put out to stop having children. Your people aren't happy, but they oblige.");
+                        Game.data.happiness -= 0.1;
+                    } else if (!Game.data.doesPopGrow) {
+                        Console.WriteLine("A notice has been put out that your population may have children again! They are overjoyed!");
+                        Game.data.happiness += 0.1;
+                    }
+                    Game.data.doesPopGrow = !Game.data.doesPopGrow;
+                    Game.data.actions--;
+                    break;
+                case "Toggle Population growth":
+                    if (Game.data.doesPopGrow) {
+                        Console.WriteLine("A notice has been put out to stop having children. Your people aren't happy, but they oblige.");
+                        Game.data.happiness -= 0.1;
+                    } else if (!Game.data.doesPopGrow) {
+                        Console.WriteLine("A notice has been put out that your population may have children again! They are overjoyed!");
+                        Game.data.happiness += 0.1;
+                    }
+                    Game.data.doesPopGrow = !Game.data.doesPopGrow;
+                    Game.data.actions--;
+                    break;
+                case "Toggle population Growth":
+                    if (Game.data.doesPopGrow) {
+                        Console.WriteLine("A notice has been put out to stop having children. Your people aren't happy, but they oblige.");
+                        Game.data.happiness -= 0.1;
+                    } else if (!Game.data.doesPopGrow) {
+                        Console.WriteLine("A notice has been put out that your population may have children again! They are overjoyed!");
+                        Game.data.happiness += 0.1;
+                    }
+                    Game.data.doesPopGrow = !Game.data.doesPopGrow;
+                    Game.data.actions--;
+                    break;
+                case "Toggle population growth":
+                    if (Game.data.doesPopGrow) {
+                        Console.WriteLine("A notice has been put out to stop having children. Your people aren't happy, but they oblige.");
+                        Game.data.happiness -= 0.1;
+                    } else if (!Game.data.doesPopGrow) {
+                        Console.WriteLine("A notice has been put out that your population may have children again! They are overjoyed!");
+                        Game.data.happiness += 0.1;
+                    }
+                    Game.data.doesPopGrow = !Game.data.doesPopGrow;
+                    Game.data.actions--;
+                    break;
+                case "toggle Population Growth":
+                    if (Game.data.doesPopGrow) {
+                        Console.WriteLine("A notice has been put out to stop having children. Your people aren't happy, but they oblige.");
+                        Game.data.happiness -= 0.1;
+                    } else if (!Game.data.doesPopGrow) {
+                        Console.WriteLine("A notice has been put out that your population may have children again! They are overjoyed!");
+                        Game.data.happiness += 0.1;
+                    }
+                    Game.data.doesPopGrow = !Game.data.doesPopGrow;
+                    Game.data.actions--;
+                    break;
+                case "toggle Population growth":
+                    if (Game.data.doesPopGrow) {
+                        Console.WriteLine("A notice has been put out to stop having children. Your people aren't happy, but they oblige.");
+                        Game.data.happiness -= 0.1;
+                    } else if (!Game.data.doesPopGrow) {
+                        Console.WriteLine("A notice has been put out that your population may have children again! They are overjoyed!");
+                        Game.data.happiness += 0.1;
+                    }
+                    Game.data.doesPopGrow = !Game.data.doesPopGrow;
+                    Game.data.actions--;
+                    break;
+                case "toggle population Growth":
+                    if (Game.data.doesPopGrow) {
+                        Console.WriteLine("A notice has been put out to stop having children. Your people aren't happy, but they oblige.");
+                        Game.data.happiness -= 0.1;
+                    } else if (!Game.data.doesPopGrow) {
+                        Console.WriteLine("A notice has been put out that your population may have children again! They are overjoyed!");
+                        Game.data.happiness += 0.1;
+                    }
+                    Game.data.doesPopGrow = !Game.data.doesPopGrow;
+                    Game.data.actions--;
+                    break;
+                case "toggle population growth":
+                    if (Game.data.doesPopGrow) {
+                        Console.WriteLine("A notice has been put out to stop having children. Your people aren't happy, but they oblige.");
+                        Game.data.happiness -= 0.1;
+                    } else if (!Game.data.doesPopGrow) {
+                        Console.WriteLine("A notice has been put out that your population may have children again! They are overjoyed!");
+                        Game.data.happiness += 0.1;
+                    }
+                    Game.data.doesPopGrow = !Game.data.doesPopGrow;
+                    Game.data.actions--;
+                    break;
+                case "Set Growth Limit":
+                    Console.WriteLine("What do you want the new limit to be?");
+                    int amount;
+                    try {
+                        amount = Convert.ToInt32(Console.ReadLine());
+                    } catch (FormatException) {
+                        Console.WriteLine("That was not a number, cancelling limit change");
+                        break;
+                    }
+                    Game.data.popGrowthLimit = amount;
+                    Game.data.actions--;
+                    Game.data.happiness -= amount * 0.01;
+                    Console.WriteLine("A notice has been put out not to have more than {0} children. Your people aren't very happy though.", amount);
+                    break;
+                case "Set Growth limit":
+                    Console.WriteLine("What do you want the new limit to be?");
+                    try {
+                        amount = Convert.ToInt32(Console.ReadLine());
+                    } catch (FormatException) {
+                        Console.WriteLine("That was not a number, cancelling limit change");
+                        break;
+                    }
+                    Game.data.popGrowthLimit = amount;
+                    Game.data.actions--;
+                    Game.data.happiness -= amount * 0.01;
+                    Console.WriteLine("A notice has been put out not to have more than {0} children. Your people aren't very happy though.", amount);
+                    break;
+                case "Set growth Limit":
+                    Console.WriteLine("What do you want the new limit to be?");
+                    try {
+                        amount = Convert.ToInt32(Console.ReadLine());
+                    } catch (FormatException) {
+                        Console.WriteLine("That was not a number, cancelling limit change");
+                        break;
+                    }
+                    Game.data.popGrowthLimit = amount;
+                    Game.data.actions--;
+                    Game.data.happiness -= amount * 0.01;
+                    Console.WriteLine("A notice has been put out not to have more than {0} children. Your people aren't very happy though.", amount);
+                    break;
+                case "Set growth limit":
+                    Console.WriteLine("What do you want the new limit to be?");
+                    try {
+                        amount = Convert.ToInt32(Console.ReadLine());
+                    } catch (FormatException) {
+                        Console.WriteLine("That was not a number, cancelling limit change");
+                        break;
+                    }
+                    Game.data.popGrowthLimit = amount;
+                    Game.data.actions--;
+                    Game.data.happiness -= amount * 0.01;
+                    Console.WriteLine("A notice has been put out not to have more than {0} children. Your people aren't very happy though.", amount);
+                    break;
+                case "set Growth Limit":
+                    Console.WriteLine("What do you want the new limit to be?");
+                    try {
+                        amount = Convert.ToInt32(Console.ReadLine());
+                    } catch (FormatException) {
+                        Console.WriteLine("That was not a number, cancelling limit change");
+                        break;
+                    }
+                    Game.data.popGrowthLimit = amount;
+                    Game.data.actions--;
+                    Game.data.happiness -= amount * 0.01;
+                    Console.WriteLine("A notice has been put out not to have more than {0} children. Your people aren't very happy though.", amount);
+                    break;
+                case "set Growth limit":
+                    Console.WriteLine("What do you want the new limit to be?");
+                    try {
+                        amount = Convert.ToInt32(Console.ReadLine());
+                    } catch (FormatException) {
+                        Console.WriteLine("That was not a number, cancelling limit change");
+                        break;
+                    }
+                    Game.data.popGrowthLimit = amount;
+                    Game.data.actions--;
+                    Game.data.happiness -= amount * 0.01;
+                    Console.WriteLine("A notice has been put out not to have more than {0} children. Your people aren't very happy though.", amount);
+                    break;
+                case "set growth Limit":
+                    Console.WriteLine("What do you want the new limit to be?");
+                    try {
+                        amount = Convert.ToInt32(Console.ReadLine());
+                    } catch (FormatException) {
+                        Console.WriteLine("That was not a number, cancelling limit change");
+                        break;
+                    }
+                    Game.data.popGrowthLimit = amount;
+                    Game.data.actions--;
+                    Game.data.happiness -= amount * 0.01;
+                    Console.WriteLine("A notice has been put out not to have more than {0} children. Your people aren't very happy though.", amount);
+                    break;
+                case "set growth limit":
+                    Console.WriteLine("What do you want the new limit to be?");
+                    try {
+                        amount = Convert.ToInt32(Console.ReadLine());
+                    } catch (FormatException) {
+                        Console.WriteLine("That was not a number, cancelling limit change");
+                        break;
+                    }
+                    Game.data.popGrowthLimit = amount;
+                    Game.data.actions--;
+                    Game.data.happiness -= amount * 0.01;
+                    Console.WriteLine("A notice has been put out not to have more than {0} children. Your people aren't very happy though.", amount);
+                    break;
+                default:
+                    Console.WriteLine("That wasn't an option, cancelling population changes");
+                    break;
+            }
+        }
+    }
     class Trading {
         //-.TODO: Money is useful in trade
         public static void Trade () {
