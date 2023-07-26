@@ -12,15 +12,11 @@ namespace Resources {
             switch (Console.ReadLine()) {
                 case "Yes":
                     if(Game.data.population > executionAmount) {
-                        int counter = 0;
-                        for (; counter < executionAmount; counter++) {
-                            Game.data.elders.RemoveAt(counter);
-                        }
-                        Game.data.population -= counter;
-                        Game.data.fear += 0.05 * counter;
-                        Game.data.happiness -= 0.05 * counter;
+                        Game.data.population -= executionAmount;
+                        Game.data.fear += 0.05 * executionAmount;
+                        Game.data.happiness -= 0.05 * executionAmount;
                         Game.data.actions--;
-                        Console.WriteLine("{0} people were executed. Your people grow more fearful of you.", counter);
+                        Console.WriteLine("{0} people were executed. Your people grow more fearful of you.", executionAmount);
                     } else {
                         Console.WriteLine("You wouldn't have enough people after this. Execution canceled.");
                     }
@@ -31,7 +27,7 @@ namespace Resources {
                         Game.data.fear += 0.05 * executionAmount;
                         Game.data.happiness -= 0.05 * executionAmount;
                         Game.data.actions--;
-                        Console.WriteLine("Your people grow more fearful of you");
+                        Console.WriteLine("{0} people were executed. Your people grow more fearful of you.", executionAmount);
                     } else {
                         Console.WriteLine("You wouldn't have enough people after this. Execution canceled.");
                     }
@@ -538,293 +534,15 @@ namespace Resources {
                         Trade();
                     }
                     break;
-                case "Wood-Food":
-                    Console.WriteLine("How much?");
-                    amount = Convert.ToInt32(Console.ReadLine());
-                    if (amount <= Game.data.wood) {
-                        Game.data.wood -= amount;
-                        Game.data.food += amount;
-                        Game.data.actions--;
-                    } else {
-                        Console.WriteLine("You don't have enough");
-                        Trade();
-                    }
+                case "Quit":
+                    Console.WriteLine("Quitting");
                     break;
-                case "Wood-food":
-                    Console.WriteLine("How much?");
-                    amount = Convert.ToInt32(Console.ReadLine());
-                    if (amount <= Game.data.wood) {
-                        Game.data.wood -= amount;
-                        Game.data.food += amount;
-                        Game.data.actions--;
-                    } else {
-                        Console.WriteLine("You don't have enough");
-                        Trade();
-                    }
+                case "quit":
+                    Console.WriteLine("Quitting");
                     break;
-                case "wood-Food":
-                    Console.WriteLine("How much?");
-                    amount = Convert.ToInt32(Console.ReadLine());
-                    if (amount <= Game.data.wood) {
-                        Game.data.wood -= amount;
-                        Game.data.food += amount;
-                        Game.data.actions--;
-                    } else {
-                        Console.WriteLine("You don't have enough");
-                        Trade();
-                    }
-                    break;
-                case "wood-food":
-                    Console.WriteLine("How much?");
-                    amount = Convert.ToInt32(Console.ReadLine());
-                    if (amount <= Game.data.wood) {
-                        Game.data.wood -= amount;
-                        Game.data.food += amount;
-                        Game.data.actions--;
-                    } else {
-                        Console.WriteLine("You don't have enough");
-                        Trade();
-                    }
-                    break;
-                case "Stone-Food":
-                    Console.WriteLine("How much?");
-                    amount = Convert.ToInt32(Console.ReadLine());
-                    if (amount <= Game.data.stone) {
-                        Game.data.stone -= amount;
-                        Game.data.food += amount;
-                        Game.data.actions--;
-                    } else {
-                        Console.WriteLine("You don't have enough");
-                        Trade();
-                    }
-                    break;
-                case "Stone-food":
-                    Console.WriteLine("How much?");
-                    amount = Convert.ToInt32(Console.ReadLine());
-                    if (amount <= Game.data.stone) {
-                        Game.data.stone -= amount;
-                        Game.data.food += amount;
-                        Game.data.actions--;
-                    } else {
-                        Console.WriteLine("You don't have enough");
-                        Trade();
-                    }
-                    break;
-                case "stone-Food":
-                    Console.WriteLine("How much?");
-                    amount = Convert.ToInt32(Console.ReadLine());
-                    if (amount <= Game.data.stone) {
-                        Game.data.stone -= amount;
-                        Game.data.food += amount;
-                        Game.data.actions--;
-                    } else {
-                        Console.WriteLine("You don't have enough");
-                        Trade();
-                    }
-                    break;
-                case "stone-food":
-                    Console.WriteLine("How much?");
-                    amount = Convert.ToInt32(Console.ReadLine());
-                    if (amount <= Game.data.stone) {
-                        Game.data.stone -= amount;
-                        Game.data.food += amount;
-                        Game.data.actions--;
-                    } else {
-                        Console.WriteLine("You don't have enough");
-                        Trade();
-                    }
-                    break;
-                case "Wood-Stone":
-                    Console.WriteLine("How much?");
-                    amount = Convert.ToInt32(Console.ReadLine());
-                    if (amount <= Game.data.wood) {
-                        Game.data.wood -= amount;
-                        Game.data.stone += amount;
-                        Game.data.actions--;
-                    } else {
-                        Console.WriteLine("You don't have enough");
-                        Trade();
-                    }
-                    break;
-                case "Wood-stone":
-                    Console.WriteLine("How much?");
-                    amount = Convert.ToInt32(Console.ReadLine());
-                    if (amount <= Game.data.wood) {
-                        Game.data.wood -= amount;
-                        Game.data.stone += amount;
-                        Game.data.actions--;
-                    } else {
-                        Console.WriteLine("You don't have enough");
-                        Trade();
-                    }
-                    break;
-                case "wood-Stone":
-                    Console.WriteLine("How much?");
-                    amount = Convert.ToInt32(Console.ReadLine());
-                    if (amount <= Game.data.wood) {
-                        Game.data.wood -= amount;
-                        Game.data.stone += amount;
-                        Game.data.actions--;
-                    } else {
-                        Console.WriteLine("You don't have enough");
-                        Trade();
-                    }
-                    break;
-                case "wood-stone":
-                    Console.WriteLine("How much?");
-                    amount = Convert.ToInt32(Console.ReadLine());
-                    if (amount <= Game.data.wood) {
-                        Game.data.wood -= amount;
-                        Game.data.stone += amount;
-                        Game.data.actions--;
-                    } else {
-                        Console.WriteLine("You don't have enough");
-                        Trade();
-                    }
-                    break;
-                case "Food-Wood":
-                    Console.WriteLine("How much?");
-                    amount = Convert.ToInt32(Console.ReadLine());
-                    if (amount <= Game.data.food) {
-                        Game.data.food -= amount;
-                        Game.data.wood += amount;
-                        Game.data.actions--;
-                    } else {
-                        Console.WriteLine("You don't have enough");
-                        Trade();
-                    }
-                    break;
-                case "Food-wood":
-                    Console.WriteLine("How much?");
-                    amount = Convert.ToInt32(Console.ReadLine());
-                    if (amount <= Game.data.food) {
-                        Game.data.food -= amount;
-                        Game.data.wood += amount;
-                        Game.data.actions--;
-                    } else {
-                        Console.WriteLine("You don't have enough");
-                        Trade();
-                    }
-                    break;
-                case "food-Wood":
-                    Console.WriteLine("How much?");
-                    amount = Convert.ToInt32(Console.ReadLine());
-                    if (amount <= Game.data.food) {
-                        Game.data.food -= amount;
-                        Game.data.wood += amount;
-                        Game.data.actions--;
-                    } else {
-                        Console.WriteLine("You don't have enough");
-                        Trade();
-                    }
-                    break;
-                case "food-wood":
-                    Console.WriteLine("How much?");
-                    amount = Convert.ToInt32(Console.ReadLine());
-                    if (amount <= Game.data.food) {
-                        Game.data.food -= amount;
-                        Game.data.wood += amount;
-                        Game.data.actions--;
-                    } else {
-                        Console.WriteLine("You don't have enough");
-                        Trade();
-                    }
-                    break;
-                case "Food-Stone":
-                    Console.WriteLine("How much?");
-                    amount = Convert.ToInt32(Console.ReadLine());
-                    if (amount <= Game.data.food) {
-                        Game.data.food -= amount;
-                        Game.data.stone += amount;
-                        Game.data.actions--;
-                    } else {
-                        Console.WriteLine("You don't have enough");
-                        Trade();
-                    }
-                    break;
-                case "Food-stone":
-                    Console.WriteLine("How much?");
-                    amount = Convert.ToInt32(Console.ReadLine());
-                    if (amount <= Game.data.food) {
-                        Game.data.food -= amount;
-                        Game.data.stone += amount;
-                        Game.data.actions--;
-                    } else {
-                        Console.WriteLine("You don't have enough");
-                        Trade();
-                    }
-                    break;
-                case "food-Stone":
-                    Console.WriteLine("How much?");
-                    amount = Convert.ToInt32(Console.ReadLine());
-                    if (amount <= Game.data.food) {
-                        Game.data.food -= amount;
-                        Game.data.stone += amount;
-                        Game.data.actions--;
-                    } else {
-                        Console.WriteLine("You don't have enough");
-                        Trade();
-                    }
-                    break;
-                case "food-stone":
-                    Console.WriteLine("How much?");
-                    amount = Convert.ToInt32(Console.ReadLine());
-                    if (amount <= Game.data.food) {
-                        Game.data.food -= amount;
-                        Game.data.stone += amount;
-                        Game.data.actions--;
-                    } else {
-                        Console.WriteLine("You don't have enough");
-                        Trade();
-                    }
-                    break;
-                case "Stone-Wood":
-                    Console.WriteLine("How much?");
-                    amount = Convert.ToInt32(Console.ReadLine());
-                    if (amount <= Game.data.stone) {
-                        Game.data.stone -= amount;
-                        Game.data.wood += amount;
-                        Game.data.actions--;
-                    } else {
-                        Console.WriteLine("You don't have enough");
-                        Trade();
-                    }
-                    break;
-                case "Stone-wood":
-                    Console.WriteLine("How much?");
-                    amount = Convert.ToInt32(Console.ReadLine());
-                    if (amount <= Game.data.stone) {
-                        Game.data.stone -= amount;
-                        Game.data.wood += amount;
-                        Game.data.actions--;
-                    } else {
-                        Console.WriteLine("You don't have enough");
-                        Trade();
-                    }
-                    break;
-                case "stone-Wood":
-                    Console.WriteLine("How much?");
-                    amount = Convert.ToInt32(Console.ReadLine());
-                    if (amount <= Game.data.stone) {
-                        Game.data.stone -= amount;
-                        Game.data.wood += amount;
-                        Game.data.actions--;
-                    } else {
-                        Console.WriteLine("You don't have enough");
-                        Trade();
-                    }
-                    break;
-                case "stone-wood":
-                    Console.WriteLine("How much?");
-                    amount = Convert.ToInt32(Console.ReadLine());
-                    if (amount <= Game.data.stone) {
-                        Game.data.stone -= amount;
-                        Game.data.wood += amount;
-                        Game.data.actions--;
-                    } else {
-                        Console.WriteLine("You don't have enough");
-                        Trade();
-                    }
+                default:
+                    Console.WriteLine("That wasn't an option!");
+                    Trade();
                     break;
             }
         }

@@ -2,13 +2,13 @@ using System;
 using System.IO;
 using RDCiv3;
 using Game = RDCiv3.Program;
+using System.Runtime.InteropServices;
 
 namespace AccessData {
     class Data {
 
-        //The default save file path.  %appdata%\RDCiv3
-        public static string gamePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "RDCiv3/");
-
+        //The default save file path.  %appdata%\RDCiv\RDCiv3 (Note: This path has changed)   or   ~/.config/RDCiv/RDCiv3
+        public static string gamePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "RDCiv/RDCiv3/");
         //Keeps track of the current path being used to save
         public static string? currentPath = null;
 

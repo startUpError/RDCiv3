@@ -6,7 +6,6 @@ namespace Buildings
 {
 
     class Building {
-        //TODO: Some buildings require more builder workers than others.
         public static void Build ()
         {
             //Asks what building to build as input
