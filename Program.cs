@@ -19,7 +19,7 @@ namespace RDCiv3
 
         //Material variables
         public double money = 0.00;
-        public int food = 10;
+        public int food = 20;
         public int wood = 5;
         public int stone = 5;
 
@@ -81,8 +81,6 @@ namespace RDCiv3
             {
 
                 //Updates the hidden stats
-                data.disonance = data.fear <= 0.99 ? (1 - data.happiness) - (data.fear * 0.35) : 10;
-
                 if (data.happiness > 1) {
                     data.happiness = 1;
                 } else if (data.happiness < 0.02 * data.parks) { //Minimum happiness is limited to how many parks you have. +2% for each park
@@ -93,6 +91,8 @@ namespace RDCiv3
                 } else if (data.fear < 0) {
                     data.fear = 0;
                 }
+                
+                data.disonance = data.fear <= 0.99 ? (1 - data.happiness) - (data.fear * 0.35) : 10;
 
                 //Checks and runs events
                 Events.All();
@@ -179,7 +179,7 @@ namespace RDCiv3
                     Display();
                     //Ask for an action as input
                     Console.WriteLine("What would you like to do?");
-                    Console.WriteLine("Build, Demolish, Execute, Trade, Limit Population, Skip, Skip Day, Save, Quit");
+                    Console.WriteLine("Build, Demolish, Execute, Trade, Limit Population, Skip [enter], Skip Day [sd], Save, Quit");
                     //Check possibilities and run code accordingly
                     switch (Console.ReadLine())
                     {
@@ -240,6 +240,9 @@ namespace RDCiv3
                             data.actions = 0;
                             break;
                         case "skip day":
+                            data.actions = 0;
+                            break;
+                        case "sd":
                             data.actions = 0;
                             break;
                         case "Limit Population":
@@ -347,10 +350,10 @@ namespace RDCiv3
             Console.WriteLine("Food = {0}", data.food);
             Console.WriteLine("Wood = {0}", data.wood);
             Console.WriteLine("Stone = {0}", data.stone);
-            Console.WriteLine("Farms [4 Work Slots] = {0}", data.farms);
+            Console.WriteLine("Farms = {0}", data.farms);
             Console.WriteLine("Houses = {0}", data.houses);
-            Console.WriteLine("Wood Huts [3 Work Slots] = {0}", data.woodHuts);
-            Console.WriteLine("Stone Quarries [2 Work Slots] = {0}", data.stoneQuarries);
+            Console.WriteLine("Wood Huts = {0}", data.woodHuts);
+            Console.WriteLine("Stone Quarries = {0}", data.stoneQuarries);
             Console.WriteLine("Parks = {0}", data.parks);
         }
     }

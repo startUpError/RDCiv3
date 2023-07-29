@@ -73,7 +73,8 @@ namespace EventSystem {
                 Game.data.lastStatEvent = Game.data.days;
             }
         }
-        //Checks if people should revolt (unique)
+
+        //Checks if people should revolt (stat; unlimited)
         public static void Revolt () {
             //High disonance. Increases by disonance. Checks if revolts are on.
             if (Game.data.disonance > 0.75 && Random.NextDouble() < Math.Pow(16, Game.data.disonance - 0.75) - 1 && Game.data.revolts) {

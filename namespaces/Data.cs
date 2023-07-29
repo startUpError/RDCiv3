@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 namespace AccessData {
     class Data {
 
-        //The default save file path.  %appdata%\RDCiv\RDCiv3 (Note: This path has changed)   or   ~/.config/RDCiv/RDCiv3
+        //The default save folder path.  %appdata%\RDCiv\RDCiv3 (Note: This path has changed)   or   ~/.config/RDCiv/RDCiv3
         public static string gamePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "RDCiv/RDCiv3/");
         //Keeps track of the current path being used to save
         public static string? currentPath = null;
@@ -35,6 +35,8 @@ namespace AccessData {
                     Game.data.parks = (Convert.ToInt32(sr.ReadLine()) - 18) / 54;
                     Game.data.housingFails = (Convert.ToInt32(sr.ReadLine()) - 18) / 54;
                     Game.data.money = (Convert.ToInt32(sr.ReadLine()) - 18) / 54;
+                    Game.data.doesPopGrow = Convert.ToInt32(sr.ReadLine()) == 1243;
+                    Game.data.popGrowthLimit = (Convert.ToInt32(sr.ReadLine()) / 12) - 115;
                 }
             } catch (FileNotFoundException) { //Ensures the game doesn't crash if an invalid file is given
                 Console.WriteLine("There is no save file with that name.");
@@ -85,6 +87,8 @@ namespace AccessData {
                 sw.WriteLine((Game.data.parks * 54) + 18);
                 sw.WriteLine((Game.data.housingFails * 54) + 18);
                 sw.WriteLine((Game.data.money * 54) + 18);
+                sw.WriteLine(Game.data.doesPopGrow ? 1243 : 142312);
+                sw.WriteLine((Game.data.popGrowthLimit + 115) * 12);
             }
         }
     }

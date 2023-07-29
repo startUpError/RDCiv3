@@ -38,7 +38,7 @@ namespace Resources {
             }
         }
         public static void LimitPopulation () {
-            Console.WriteLine("Would you like to toggle population growth, or set a population growth limit?");
+            Console.WriteLine("Would you like to toggle population growth [Toggle Population Growth], or set a population growth limit [Set Growth Limit]?");
             switch (Console.ReadLine()) {
                 case "Toggle Population Growth":
                     if (Game.data.doesPopGrow) {
@@ -137,10 +137,18 @@ namespace Resources {
                         Console.WriteLine("That was not a number, cancelling limit change");
                         break;
                     }
+                    if (amount == Game.data.popGrowthLimit) {
+                        Console.WriteLine("That was already the limit. Cancelling changes.");
+                        break;
+                    } else if (amount < 0) {
+                        Console.WriteLine("The limit cannot be negative. It can be zero. Cancelling limit change");
+                        break;
+                    }
+                    int changeAmount = amount - Game.data.popGrowthLimit;
                     Game.data.popGrowthLimit = amount;
                     Game.data.actions--;
-                    Game.data.happiness -= amount * 0.01;
-                    Console.WriteLine("A notice has been put out not to have more than {0} children. Your people aren't very happy though.", amount);
+                    Game.data.happiness += changeAmount * 0.01;
+                    Console.WriteLine(changeAmount < 0 ? "A notice has been put out not to have more than {0} children. Your people aren't very happy though." : "A notice has been put out that your civilization can now have up to {0} kids. They are happy for this!", amount);
                     break;
                 case "Set Growth limit":
                     Console.WriteLine("What do you want the new limit to be?");
@@ -150,10 +158,18 @@ namespace Resources {
                         Console.WriteLine("That was not a number, cancelling limit change");
                         break;
                     }
+                    if (amount == Game.data.popGrowthLimit) {
+                        Console.WriteLine("That was already the limit. Cancelling changes.");
+                        break;
+                    } else if (amount < 0) {
+                        Console.WriteLine("The limit cannot be negative. It can be zero. Cancelling limit change");
+                        break;
+                    }
+                    changeAmount = amount - Game.data.popGrowthLimit;
                     Game.data.popGrowthLimit = amount;
                     Game.data.actions--;
-                    Game.data.happiness -= amount * 0.01;
-                    Console.WriteLine("A notice has been put out not to have more than {0} children. Your people aren't very happy though.", amount);
+                    Game.data.happiness -= changeAmount * 0.01;
+                    Console.WriteLine(changeAmount < 0 ? "A notice has been put out not to have more than {0} children. Your people aren't very happy though." : "A notice has been put out that your civilization can now have up to {0} kids. They are happy for this!", amount);
                     break;
                 case "Set growth Limit":
                     Console.WriteLine("What do you want the new limit to be?");
@@ -163,10 +179,18 @@ namespace Resources {
                         Console.WriteLine("That was not a number, cancelling limit change");
                         break;
                     }
+                    if (amount == Game.data.popGrowthLimit) {
+                        Console.WriteLine("That was already the limit. Cancelling changes.");
+                        break;
+                    } else if (amount < 0) {
+                        Console.WriteLine("The limit cannot be negative. It can be zero. Cancelling limit change");
+                        break;
+                    }
+                    changeAmount = amount - Game.data.popGrowthLimit;
                     Game.data.popGrowthLimit = amount;
                     Game.data.actions--;
-                    Game.data.happiness -= amount * 0.01;
-                    Console.WriteLine("A notice has been put out not to have more than {0} children. Your people aren't very happy though.", amount);
+                    Game.data.happiness -= changeAmount * 0.01;
+                    Console.WriteLine(changeAmount < 0 ? "A notice has been put out not to have more than {0} children. Your people aren't very happy though." : "A notice has been put out that your civilization can now have up to {0} kids. They are happy for this!", amount);
                     break;
                 case "Set growth limit":
                     Console.WriteLine("What do you want the new limit to be?");
@@ -176,10 +200,18 @@ namespace Resources {
                         Console.WriteLine("That was not a number, cancelling limit change");
                         break;
                     }
+                    if (amount == Game.data.popGrowthLimit) {
+                        Console.WriteLine("That was already the limit. Cancelling changes.");
+                        break;
+                    } else if (amount < 0) {
+                        Console.WriteLine("The limit cannot be negative. It can be zero. Cancelling limit change");
+                        break;
+                    }
+                    changeAmount = amount - Game.data.popGrowthLimit;
                     Game.data.popGrowthLimit = amount;
                     Game.data.actions--;
-                    Game.data.happiness -= amount * 0.01;
-                    Console.WriteLine("A notice has been put out not to have more than {0} children. Your people aren't very happy though.", amount);
+                    Game.data.happiness -= changeAmount * 0.01;
+                    Console.WriteLine(changeAmount < 0 ? "A notice has been put out not to have more than {0} children. Your people aren't very happy though." : "A notice has been put out that your civilization can now have up to {0} kids. They are happy for this!", amount);
                     break;
                 case "set Growth Limit":
                     Console.WriteLine("What do you want the new limit to be?");
@@ -189,10 +221,18 @@ namespace Resources {
                         Console.WriteLine("That was not a number, cancelling limit change");
                         break;
                     }
+                    if (amount == Game.data.popGrowthLimit) {
+                        Console.WriteLine("That was already the limit. Cancelling changes.");
+                        break;
+                    } else if (amount < 0) {
+                        Console.WriteLine("The limit cannot be negative. It can be zero. Cancelling limit change");
+                        break;
+                    }
+                    changeAmount = amount - Game.data.popGrowthLimit;
                     Game.data.popGrowthLimit = amount;
                     Game.data.actions--;
-                    Game.data.happiness -= amount * 0.01;
-                    Console.WriteLine("A notice has been put out not to have more than {0} children. Your people aren't very happy though.", amount);
+                    Game.data.happiness -= changeAmount * 0.01;
+                    Console.WriteLine(changeAmount < 0 ? "A notice has been put out not to have more than {0} children. Your people aren't very happy though." : "A notice has been put out that your civilization can now have up to {0} kids. They are happy for this!", amount);
                     break;
                 case "set Growth limit":
                     Console.WriteLine("What do you want the new limit to be?");
@@ -202,10 +242,18 @@ namespace Resources {
                         Console.WriteLine("That was not a number, cancelling limit change");
                         break;
                     }
+                    if (amount == Game.data.popGrowthLimit) {
+                        Console.WriteLine("That was already the limit. Cancelling changes.");
+                        break;
+                    } else if (amount < 0) {
+                        Console.WriteLine("The limit cannot be negative. It can be zero. Cancelling limit change");
+                        break;
+                    }
+                    changeAmount = amount - Game.data.popGrowthLimit;
                     Game.data.popGrowthLimit = amount;
                     Game.data.actions--;
-                    Game.data.happiness -= amount * 0.01;
-                    Console.WriteLine("A notice has been put out not to have more than {0} children. Your people aren't very happy though.", amount);
+                    Game.data.happiness -= changeAmount * 0.01;
+                    Console.WriteLine(changeAmount < 0 ? "A notice has been put out not to have more than {0} children. Your people aren't very happy though." : "A notice has been put out that your civilization can now have up to {0} kids. They are happy for this!", amount);
                     break;
                 case "set growth Limit":
                     Console.WriteLine("What do you want the new limit to be?");
@@ -215,10 +263,18 @@ namespace Resources {
                         Console.WriteLine("That was not a number, cancelling limit change");
                         break;
                     }
+                    if (amount == Game.data.popGrowthLimit) {
+                        Console.WriteLine("That was already the limit. Cancelling changes.");
+                        break;
+                    } else if (amount < 0) {
+                        Console.WriteLine("The limit cannot be negative. It can be zero. Cancelling limit change");
+                        break;
+                    }
+                    changeAmount = amount - Game.data.popGrowthLimit;
                     Game.data.popGrowthLimit = amount;
                     Game.data.actions--;
-                    Game.data.happiness -= amount * 0.01;
-                    Console.WriteLine("A notice has been put out not to have more than {0} children. Your people aren't very happy though.", amount);
+                    Game.data.happiness -= changeAmount * 0.01;
+                    Console.WriteLine(changeAmount < 0 ? "A notice has been put out not to have more than {0} children. Your people aren't very happy though." : "A notice has been put out that your civilization can now have up to {0} kids. They are happy for this!", amount);
                     break;
                 case "set growth limit":
                     Console.WriteLine("What do you want the new limit to be?");
@@ -228,10 +284,18 @@ namespace Resources {
                         Console.WriteLine("That was not a number, cancelling limit change");
                         break;
                     }
+                    if (amount == Game.data.popGrowthLimit) {
+                        Console.WriteLine("That was already the limit. Cancelling changes.");
+                        break;
+                    } else if (amount < 0) {
+                        Console.WriteLine("The limit cannot be negative. It can be zero. Cancelling limit change");
+                        break;
+                    }
+                    changeAmount = amount - Game.data.popGrowthLimit;
                     Game.data.popGrowthLimit = amount;
                     Game.data.actions--;
-                    Game.data.happiness -= amount * 0.01;
-                    Console.WriteLine("A notice has been put out not to have more than {0} children. Your people aren't very happy though.", amount);
+                    Game.data.happiness -= changeAmount * 0.01;
+                    Console.WriteLine(changeAmount < 0 ? "A notice has been put out not to have more than {0} children. Your people aren't very happy though." : "A notice has been put out that your civilization can now have up to {0} kids. They are happy for this!", amount);
                     break;
                 default:
                     Console.WriteLine("That wasn't an option, cancelling population changes");
