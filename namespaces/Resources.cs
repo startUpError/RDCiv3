@@ -2,7 +2,7 @@ using System;
 using RDCiv3;
 using Game = RDCiv3.Program;
 
-namespace Resources {
+namespace RDCiv3.Resources {
 
     class Population {
         public static void Execute () {

@@ -1,15 +1,14 @@
 ﻿using System;
-using Buildings;
-using AccessData;
-using EventSystem;
-using Resources;
+using RDCiv3.Buildings;
+using RDCiv3.AccessData;
+using RDCiv3.EventSystem;
+using RDCiv3.Resources;
 
 //TODO: Add other civilizations, include "Ethan's Village"
 namespace RDCiv3
 {
 
     //Stores game data
-    //-.TODO: Money
     struct GameData {
         //Time variables
         public int days = 0;
@@ -18,7 +17,7 @@ namespace RDCiv3
         public int population = 5;
 
         //Material variables
-        public double money = 0.00;
+        public double money = 0.00; //TODO: Make a float for program speed, as with only two decimal places there is no need for precision
         public int food = 20;
         public int wood = 5;
         public int stone = 5;
@@ -47,7 +46,7 @@ namespace RDCiv3
         public bool cheats = false;
         public bool revolts = true;
 
-        public GameData()
+        public GameData() //Constructor; not necessary as all variables have defaults
         {
         }
     }
@@ -80,7 +79,7 @@ namespace RDCiv3
             while (true)
             {
 
-                //Updates the hidden stats
+                //Limit the stats to their bounds
                 if (data.happiness > 1) {
                     data.happiness = 1;
                 } else if (data.happiness < 0.02 * data.parks) { //Minimum happiness is limited to how many parks you have. +2% for each park
@@ -92,12 +91,14 @@ namespace RDCiv3
                     data.fear = 0;
                 }
                 
+                //Set disonence to 100 if the people have 100% fear, otherwise, make it related to hoew unhappy they are minus how scared they are
                 data.disonance = data.fear <= 0.99 ? (1 - data.happiness) - (data.fear * 0.35) : 10;
 
-                //Checks and runs events
+                //Checks and runs events (See the Events namespace)
                 Events.All();
 
                 //Adds materials for each building if not the first day
+                //Each building produces 1 of its corresponding material
                 if (data.days != 0)
                 {
                     data.wood += data.woodHuts;
@@ -110,33 +111,33 @@ namespace RDCiv3
                 {
                     //Take away 1 food for every person
                     data.food -= data.population;
-                    if (data.days == 0) {
+                    if (data.days == 0) {   //TODO: Move this logic elsewhere
                         //If its the first day, say new game message
                         Console.WriteLine("You have started a new game!");
                     } else {
                         //Otherwise say the new day message
                         Console.WriteLine("Your population has survived another day.");
-                        //Add happiness if everyone is fed
+                        //Add happiness if everyone is well fed
                         data.happiness += 0.01;
                     }
                     //Add to the day counter and reset action counter
                     data.days++;
                     data.actions = 3;
-                } else if (data.food == 0) { //No food is a guarenteed not enough food
+                } else if (data.food == 0) { //No food is a guarenteed not enough food  //TODO: Give some lee-way of no food days
                     Console.WriteLine("Game Over! You did not have enough food for your civilization!");
-                    Environment.Exit(0);
+                    Environment.Exit(0); //TODO: Don't completely exit the program (maybe make main menu)
                     return;
-                } else if (data.population > 0) { //Less food than people, but still more than zero people
-                    data.happiness -= (data.population - data.food) / 100;
-                    data.population = data.food;
-                    data.food = 0;
+                } else if (data.population > 0) { //Less food than people, but still more than zero people  //TODO: Give some lee-way of no food days
+                    data.happiness -= (data.population - data.food) / 100; //Remove happiness based on how many excess people there are
+                    data.population = data.food; //Only people with food can survive
+                    data.food = 0; //All the food gets eaten
                     Console.WriteLine("Some of your population survived, but some died due to lack of food");
                     data.days++;
                     data.actions = 3;
                 } else { //Only possible if you have zero people
                     //Write no people game over message and quit the game
                     Console.WriteLine("Game Over! You had no population remaining, so you had no civilization to run.");
-                    Environment.Exit(0);
+                    Environment.Exit(0); //TODO: Don't completely exit the program (maybe make main menu)
                     return;
                 }
 
@@ -149,19 +150,14 @@ namespace RDCiv3
                     if (data.housingFails >= 4) {
                         data.population -= (data.population - data.houses);
                         Console.WriteLine("Some of your population died because they went without shelter for too long.");
-                        //Reset housing failures
+                        //Reset housing failures (because now everyone left has a house)
                         data.housingFails = 0;
                     }
                 } else { //Reset housing failures if you have enough houses again
                     data.housingFails = 0;
                 }
 
-                //Population grows to fill empty houses if you have double the food
-                /*
-                    -TODO: Improve the growth system. 
-                    -EG. User can set a pop-growth cap
-                    -EG. User can toggle pop-growth
-                */
+                //Population grows to fill empty houses if you have double the food, but only if you let the population grow, and there is less than hte limit you set
                 if (data.food >= data.population * 2 && data.houses > data.population && data.doesPopGrow && data.population < data.popGrowthLimit)
                 {
                     int popGrowthAmount = Math.Min(data.houses - data.population, data.popGrowthLimit - data.population);
@@ -169,7 +165,7 @@ namespace RDCiv3
                     data.food -= popGrowthAmount;
                     data.population += popGrowthAmount;
                     //People are happy for the civilization to grow
-                    data.happiness += 0.06 + Math.Round(0.002, 2);
+                    data.happiness += 0.06 + Math.Round(0.002, 2); //TODO: ? Why is this Round here?
                 }
 
                 //Daily action loop
@@ -333,7 +329,8 @@ namespace RDCiv3
                     }
 
                     //If you have no actions left for the day, break the action loop
-                    if (data.actions <= 0) {
+                    if (data.actions <= 0)
+                    {
                         break;
                     }
                 }

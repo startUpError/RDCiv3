@@ -2,7 +2,7 @@ using System;
 using RDCiv3;
 using Game = RDCiv3.Program;
 
-namespace EventSystem {
+namespace RDCiv3.EventSystem {
     class Events {
 
         //Allows random number generation

@@ -4,7 +4,7 @@ using RDCiv3;
 using Game = RDCiv3.Program;
 using System.Runtime.InteropServices;
 
-namespace AccessData {
+namespace RDCiv3.AccessData {
     class Data {
 
         //The default save folder path.  %appdata%\RDCiv\RDCiv3 (Note: This path has changed)   or   ~/.config/RDCiv/RDCiv3
