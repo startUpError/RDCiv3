@@ -1,8 +1,8 @@
 ﻿using System;
-using Buildings;
-using AccessData;
-using EventSystem;
-using Resources;
+using RDCiv3.Buildings;
+using RDCiv3.AccessData;
+using RDCiv3.EventSystem;
+using RDCiv3.Resources;
 
 //TODO: Add other civilizations, include "Ethan's Village"
 namespace RDCiv3

@@ -2,7 +2,7 @@ using System;
 using RDCiv3;
 using Game = RDCiv3.Program;
 
-namespace Buildings
+namespace RDCiv3.Buildings
 {
 
     class Building {
