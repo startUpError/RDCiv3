@@ -1,5 +1,0 @@
-C:\Users\IMPETUS\Desktop\Code\C#\RDCiv3\bin\Debug\net7.0\publish\RDCiv3.exe
-C:\Users\IMPETUS\Desktop\Code\C#\RDCiv3\bin\Debug\net7.0\publish\RDCiv3.dll
-C:\Users\IMPETUS\Desktop\Code\C#\RDCiv3\bin\Debug\net7.0\publish\RDCiv3.deps.json
-C:\Users\IMPETUS\Desktop\Code\C#\RDCiv3\bin\Debug\net7.0\publish\RDCiv3.runtimeconfig.json
-C:\Users\IMPETUS\Desktop\Code\C#\RDCiv3\bin\Debug\net7.0\publish\RDCiv3.pdb
